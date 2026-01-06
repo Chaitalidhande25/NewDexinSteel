@@ -44,11 +44,6 @@
       color: #d33b3b;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-
     .section-title {
       margin-top: 25px;
       margin-bottom: 10px;
@@ -75,16 +70,14 @@
       font-size: 14px;
     }
 
-    input, textarea, select {
+    input, textarea {
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 6px;
       font-size: 14px;
     }
 
-    textarea {
-      resize: vertical;
-    }
+    textarea { resize: vertical; }
 
     .product-row {
       display: flex;
@@ -101,13 +94,13 @@
     }
 
     .add-btn {
-      align-self: flex-start;
       background: #007bff;
       color: white;
       padding: 8px 16px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      margin-bottom: 10px;
     }
 
     input[type="submit"] {
@@ -127,11 +120,12 @@
 
 <div class="container">
 
+  <!-- Left Panel -->
   <div class="left">
     <h2>Dexin Steel</h2>
-    <p>High-quality steel solutions trusted by industries worldwide.</p>
   </div>
 
+  <!-- Right Panel -->
   <div class="right">
     <h2>Request For Quote</h2>
 
@@ -139,11 +133,9 @@
           method="POST"
           onsubmit="combineProductData()">
 
-      <!-- Salesforce Required -->
+      <!-- Salesforce -->
       <input type="hidden" name="oid" value="00DKj00000pTxrb">
       <input type="hidden" name="retURL" value="http://google.com">
-
-      <!-- Lead Source -->
       <input type="hidden" name="lead_source" value="Website">
 
       <!-- Contact Information -->
@@ -184,32 +176,11 @@
       <div class="form-row">
         <div class="form-group">
           <label>Service Interested</label>
-          <select name="00NYYYYYYYYYYYY">
-            <option value="">-- Select --</option>
-            <option value="Steel Supply">Steel Supply</option>
-            <option value="Custom Fabrication">Custom Fabrication</option>
-            <option value="Bulk Order">Bulk Order</option>
-            <option value="Consultation">Consultation</option>
-          </select>
+          <input name="00NYYYYYYYYYYYY" placeholder="e.g. Steel Supply, Fabrication">
         </div>
       </div>
 
-      <!-- Products Section (Moved Above Address) -->
-      <div class="section-title">Products Requested</div>
-
-      <div id="productContainer">
-        <div class="product-row">
-          <input type="text" placeholder="Product Name">
-          <input type="number" placeholder="Quantity" min="1">
-          <button type="button" class="remove-btn" onclick="removeRow(this)">❌</button>
-        </div>
-      </div>
-
-      <button type="button" class="add-btn" onclick="addRow()">+ Add Product</button>
-
-      <input type="hidden" id="product_summary" name="00NXXXXXXXXXXXX">
-
-      <!-- Address Section -->
+      <!-- Address -->
       <div class="section-title">Address Details</div>
 
       <div class="form-row">
@@ -240,6 +211,21 @@
           <input name="zip">
         </div>
       </div>
+
+      <!-- Products -->
+      <div class="section-title">Products Requested</div>
+
+      <div id="productContainer">
+        <div class="product-row">
+          <input type="text" placeholder="Product Name">
+          <input type="number" placeholder="Quantity" min="1">
+          <button type="button" class="remove-btn" onclick="removeRow(this)">❌</button>
+        </div>
+      </div>
+
+      <button type="button" class="add-btn" onclick="addRow()">+ Add Product</button>
+
+      <input type="hidden" id="product_summary" name="00NXXXXXXXXXXXX">
 
       <input type="submit" value="Submit Quote Request">
     </form>
