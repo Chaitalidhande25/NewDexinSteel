@@ -28,7 +28,7 @@
     /* LEFT PANEL */
     .left {
       width: 45%;
-      background: #ffffff; /* WHITE */
+      background: #ffffff;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -36,7 +36,7 @@
     }
 
     .logo {
-      max-width: 380px; /* INCREASED SIZE */
+      max-width: 460px; /* INCREASED MORE */
       width: 100%;
       height: auto;
     }
@@ -45,12 +45,12 @@
     .right {
       width: 55%;
       padding: 40px 30px;
-      background: #eaf3ff; /* LIGHT BLUE */
+      background: #cfe3ff; /* MEDIUM BLUE */
     }
 
     h2 {
       text-align: center;
-      color: #d33b3b;
+      color: #b71c1c;
     }
 
     form {
@@ -63,7 +63,7 @@
       margin-bottom: 10px;
       font-weight: 600;
       color: #333;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #aaa;
       padding-bottom: 5px;
     }
 
@@ -86,7 +86,7 @@
 
     input, textarea {
       padding: 10px;
-      border: 1px solid #bbb;
+      border: 1px solid #999;
       border-radius: 6px;
       font-size: 14px;
     }
@@ -110,7 +110,7 @@
     }
 
     .add-btn {
-      background: #007bff;
+      background: #1565c0;
       color: white;
       padding: 8px 16px;
       border: none;
@@ -122,7 +122,7 @@
 
     input[type="submit"] {
       margin-top: 30px;
-      background: #28a745;
+      background: #2e7d32;
       color: white;
       padding: 12px;
       border: none;
@@ -149,10 +149,10 @@
 
 <div class="container">
 
-  <!-- LEFT PANEL WITH LOGO -->
+  <!-- LEFT PANEL -->
   <div class="left">
     <img
-      src="https://va1767334714252.my.salesforce.com/sfc/dist/version/download/?oid=00DKj00000pTxrb&ids=068Kj00000bTDAWIA4&d=/a/Kj000003682U/qURuDOiqNYrf_d2e_MyLDdp5A81rzB5kEKdPd0X7iXc&operationContext=DELIVERY&viewId=05HKj000000sHe6MAE&dpt="
+      src="https://va1767334714252.my.salesforce.com/sfc/dist/version/download/?oid=00DKj00000pTxrb&ids=068Kj00000bTDAWIA4&d=/a/Kj000003682U/qURuDOiqNYrf_d2e_MyLDdp5A81rzB5kEKdPd0X7iXc&operationContext=DELIVERY"
       alt="Dexin Steel Logo"
       class="logo"
     >
@@ -212,7 +212,7 @@
         </div>
       </div>
 
-      <!-- Address Details -->
+      <!-- Address -->
       <div class="section-title">Address Details</div>
 
       <div class="form-row">
@@ -290,9 +290,7 @@
     document.querySelectorAll(".product-row").forEach(row => {
       const name = row.children[0].value;
       const qty = row.children[1].value;
-      if (name && qty) {
-        summary.push(`${name} (${qty})`);
-      }
+      if (name && qty) summary.push(`${name} (${qty})`);
     });
     document.getElementById("product_summary").value = summary.join(", ");
   }
