@@ -19,7 +19,7 @@
       display: flex;
       width: 90%;
       max-width: 1100px;
-      background: linear-gradient(135deg, #e9ebf0db, #ffffff);
+      background: #ffffff;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
@@ -28,7 +28,7 @@
     /* LEFT PANEL */
     .left {
       width: 45%;
-      background: linear-gradient(135deg, #5d3030, #10245f);
+      background: #ffffff; /* WHITE */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -36,7 +36,7 @@
     }
 
     .logo {
-      max-width: 280px;
+      max-width: 380px; /* INCREASED SIZE */
       width: 100%;
       height: auto;
     }
@@ -45,7 +45,7 @@
     .right {
       width: 55%;
       padding: 40px 30px;
-      background: #fff;
+      background: #eaf3ff; /* LIGHT BLUE */
     }
 
     h2 {
@@ -63,7 +63,7 @@
       margin-bottom: 10px;
       font-weight: 600;
       color: #333;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #ccc;
       padding-bottom: 5px;
     }
 
@@ -86,7 +86,7 @@
 
     input, textarea {
       padding: 10px;
-      border: 1px solid #ccc;
+      border: 1px solid #bbb;
       border-radius: 6px;
       font-size: 14px;
     }
@@ -149,7 +149,7 @@
 
 <div class="container">
 
-  <!-- LEFT PANEL -->
+  <!-- LEFT PANEL WITH LOGO -->
   <div class="left">
     <img
       src="https://va1767334714252.my.salesforce.com/sfc/dist/version/download/?oid=00DKj00000pTxrb&ids=068Kj00000bTDAWIA4&d=/a/Kj000003682U/qURuDOiqNYrf_d2e_MyLDdp5A81rzB5kEKdPd0X7iXc&operationContext=DELIVERY&viewId=05HKj000000sHe6MAE&dpt="
@@ -203,9 +203,8 @@
         </div>
       </div>
 
-      <!-- Service Interested (TEXT FIELD) -->
+      <!-- Service Interested -->
       <div class="section-title">Service Interested</div>
-
       <div class="form-row">
         <div class="form-group">
           <label>Service Interested</label>
@@ -261,7 +260,7 @@
 
       <button type="button" class="add-btn" onclick="addRow()">+ Add Product</button>
 
-      <!-- Product Summary Field -->
+      <!-- Product Summary -->
       <input type="hidden" id="product_summary" name="00NYYYYYYYYYYYY">
 
       <input type="submit" value="Submit Quote Request">
