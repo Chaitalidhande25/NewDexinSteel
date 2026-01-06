@@ -116,8 +116,8 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      margin-bottom: 10px;
       width: fit-content;
+      margin-bottom: 10px;
     }
 
     input[type="submit"] {
@@ -138,6 +138,9 @@
       .left, .right {
         width: 100%;
       }
+      .form-row {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -146,7 +149,7 @@
 
 <div class="container">
 
-  <!-- LEFT PANEL WITH YOUR LOGO -->
+  <!-- LEFT PANEL -->
   <div class="left">
     <img
       src="https://va1767334714252.my.salesforce.com/sfc/p/#Kj00000pTxrb/a/Kj000003682U/qURuDOiqNYrf_d2e_MyLDdp5A81rzB5kEKdPd0X7iXc"
@@ -200,30 +203,23 @@
         </div>
       </div>
 
-      <!-- Service Interested -->
+      <!-- Service Interested (TEXT FIELD) -->
       <div class="section-title">Service Interested</div>
 
       <div class="form-row">
         <div class="form-group">
           <label>Service Interested</label>
-          <input name="00NYYYYYYYYYYYY" placeholder="e.g. Steel Supply, Fabrication">
+          <input name="00NXXXXXXXXXXXX" placeholder="e.g. Steel Supply, Fabrication">
         </div>
       </div>
 
-      <!-- Address -->
+      <!-- Address Details -->
       <div class="section-title">Address Details</div>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Street</label>
-          <textarea name="street"></textarea>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>City</label>
-          <input name="city">
+          <label>Country</label>
+          <input name="country">
         </div>
         <div class="form-group">
           <label>State</label>
@@ -233,9 +229,19 @@
 
       <div class="form-row">
         <div class="form-group">
-          <label>Country</label>
-          <input name="country">
+          <label>City</label>
+          <input name="city">
         </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Street</label>
+          <textarea name="street"></textarea>
+        </div>
+      </div>
+
+      <div class="form-row">
         <div class="form-group">
           <label>Pincode</label>
           <input name="zip">
@@ -256,7 +262,7 @@
       <button type="button" class="add-btn" onclick="addRow()">+ Add Product</button>
 
       <!-- Product Summary Field -->
-      <input type="hidden" id="product_summary" name="00NXXXXXXXXXXXX">
+      <input type="hidden" id="product_summary" name="00NYYYYYYYYYYYY">
 
       <input type="submit" value="Submit Quote Request">
     </form>
@@ -285,7 +291,9 @@
     document.querySelectorAll(".product-row").forEach(row => {
       const name = row.children[0].value;
       const qty = row.children[1].value;
-      if (name && qty) summary.push(`${name} (${qty})`);
+      if (name && qty) {
+        summary.push(`${name} (${qty})`);
+      }
     });
     document.getElementById("product_summary").value = summary.join(", ");
   }
