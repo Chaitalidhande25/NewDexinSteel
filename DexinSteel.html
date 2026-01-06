@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Dexin Steel | Request For Quote</title>
-
-  <!-- Salesforce Requirement -->
   <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
 
   <style>
@@ -33,10 +31,6 @@
       color: white;
       padding: 30px;
       text-align: center;
-    }
-
-    .left h2 {
-      margin-top: 20px;
     }
 
     .right {
@@ -81,7 +75,7 @@
       font-size: 14px;
     }
 
-    input, textarea {
+    input, textarea, select {
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 6px;
@@ -126,18 +120,6 @@
       cursor: pointer;
       font-size: 16px;
     }
-
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-      }
-      .left, .right {
-        width: 100%;
-      }
-      .form-row {
-        flex-direction: column;
-      }
-    }
   </style>
 </head>
 
@@ -145,16 +127,11 @@
 
 <div class="container">
 
-  <!-- Left Panel -->
   <div class="left">
     <h2>Dexin Steel</h2>
-    <p>
-      High-quality steel solutions trusted by industries worldwide.
-      Request a quote for premium steel products with confidence.
-    </p>
+    <p>High-quality steel solutions trusted by industries worldwide.</p>
   </div>
 
-  <!-- Right Panel -->
   <div class="right">
     <h2>Request For Quote</h2>
 
@@ -162,75 +139,62 @@
           method="POST"
           onsubmit="combineProductData()">
 
-      <!-- Salesforce Hidden Fields -->
+      <!-- Salesforce Required -->
       <input type="hidden" name="oid" value="00DKj00000pTxrb">
       <input type="hidden" name="retURL" value="http://google.com">
 
-      <!-- Lead Information -->
+      <!-- Lead Source -->
+      <input type="hidden" name="lead_source" value="Website">
+
+      <!-- Contact Information -->
       <div class="section-title">Contact Information</div>
 
       <div class="form-row">
         <div class="form-group">
           <label>First Name</label>
-          <input name="first_name" maxlength="40" required>
+          <input name="first_name" required>
         </div>
         <div class="form-group">
           <label>Last Name</label>
-          <input name="last_name" maxlength="80" required>
+          <input name="last_name" required>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <label>Email</label>
-          <input name="email" type="email" maxlength="80" required>
+          <input name="email" type="email" required>
         </div>
         <div class="form-group">
           <label>Phone</label>
-          <input name="phone" maxlength="40">
+          <input name="phone">
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <label>Company</label>
-          <input name="company" maxlength="40" required>
+          <input name="company" required>
         </div>
       </div>
 
-      <!-- Address Section -->
-      <div class="section-title">Address Details</div>
+      <!-- Service Interested -->
+      <div class="section-title">Service Interested</div>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Country</label>
-          <input name="country" maxlength="40">
-        </div>
-        <div class="form-group">
-          <label>State</label>
-          <input name="state" maxlength="20">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>City</label>
-          <input name="city" maxlength="40">
-        </div>
-        <div class="form-group">
-          <label>Zip</label>
-          <input name="zip" maxlength="20">
+          <label>Service Interested</label>
+          <select name="00NYYYYYYYYYYYY">
+            <option value="">-- Select --</option>
+            <option value="Steel Supply">Steel Supply</option>
+            <option value="Custom Fabrication">Custom Fabrication</option>
+            <option value="Bulk Order">Bulk Order</option>
+            <option value="Consultation">Consultation</option>
+          </select>
         </div>
       </div>
 
-      <div class="form-row">
-        <div class="form-group">
-          <label>Street</label>
-          <textarea name="street"></textarea>
-        </div>
-      </div>
-
-      <!-- Products Section -->
+      <!-- Products Section (Moved Above Address) -->
       <div class="section-title">Products Requested</div>
 
       <div id="productContainer">
@@ -243,8 +207,39 @@
 
       <button type="button" class="add-btn" onclick="addRow()">+ Add Product</button>
 
-      <!-- Hidden Salesforce Field (Create this as a Custom Field) -->
       <input type="hidden" id="product_summary" name="00NXXXXXXXXXXXX">
+
+      <!-- Address Section -->
+      <div class="section-title">Address Details</div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Street</label>
+          <textarea name="street"></textarea>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>City</label>
+          <input name="city">
+        </div>
+        <div class="form-group">
+          <label>State</label>
+          <input name="state">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Country</label>
+          <input name="country">
+        </div>
+        <div class="form-group">
+          <label>Pincode</label>
+          <input name="zip">
+        </div>
+      </div>
 
       <input type="submit" value="Submit Quote Request">
     </form>
